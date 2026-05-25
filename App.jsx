@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Aide from "./pages/Aide";
 import Livres from "./pages/Livres";
 import Gestionsalles from "./pages/Gestionsalles";
+import GestionSalles from "./pages/GestionSalles";
 import ForgotPassword from "./pages/ForgotPassword";
 
 // Pages enseignant
@@ -31,12 +32,13 @@ export default function App() {
         <Route path="/contact"                  element={<Contact />} />
         <Route path="/aide"                     element={<Aide />} />
         <Route path="/livres"                   element={<Livres />} />
-        <Route path="/forgotPassword"           element={<ForgotPassword />} />
+        <Route path="/forgot-password"          element={<ForgotPassword />} />
 
         {/* Pages admin */}
         <Route path="/admin"                    element={<AccueilAdmin />} />
         <Route path="/admin/Eleves"             element={<GestionEleve />} />
         <Route path="/admin/Salles"             element={<Gestionsalles />} />
+        <Route path="/admin/gestion-salles"     element={<GestionSalles />} />
 
         {/* Pages enseignant */}
         <Route path="/teacher"                  element={<DashboardEnseignant />} />
