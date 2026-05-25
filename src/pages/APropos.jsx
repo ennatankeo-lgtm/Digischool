@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const TEAM = [
   {
     name: "Équipe de développement",
-    role: "Génie Informatique — Promo 2026",
+    role: "Génie Informatique — Promo 2028",
     icon: "👨‍💻",
   },
   {
@@ -220,7 +220,7 @@ export default function APropos() {
           >
             DigiSchool est une application de gestion scolaire développée dans
             le cadre du Cours Projet de Base de Données — Génie Informatique
-            2026. Elle connecte administrateurs, enseignants, parents et élèves
+            2028. Elle connecte administrateurs, enseignants, parents et élèves
             sur une seule plateforme sécurisée.
           </p>
         </div>
@@ -464,7 +464,7 @@ export default function APropos() {
             marginBottom: "36px",
           }}
         >
-          Un projet étudiant ambitieux — Génie Informatique, Promo 2026
+          Un projet étudiant ambitieux — Génie Informatique, Promo 2028
         </p>
         <div
           style={{
