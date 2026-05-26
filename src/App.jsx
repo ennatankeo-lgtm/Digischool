@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Aide from "./pages/Aide";
 import Livres from "./pages/Livres";
 import Gestionsalles from "./pages/Gestionsalles";
+import GestionSalles from "./pages/GestionSalles";
 import ForgotPassword from "./pages/ForgotPassword";
 
 // Pages enseignant
@@ -18,7 +19,11 @@ import MesEpreuves from "./pages/MesEpreuves";
 import SaisieNotes from "./pages/SaisieNotes";
 import EmploiDuTemps from "./pages/EmploiDuTemps";
 import Discipline from "./pages/Discipline";
-import Messages from "./pages/Messages";
+import Messages from "./pages/Messages";           // Messagerie enseignant/admin
+import ParentDashboard from "./pages/ParentDashboard";
+
+// Pages parent — à créer
+// import ParentMessages from "./pages/ParentMessages";
 
 export default function App() {
   return (
@@ -31,12 +36,25 @@ export default function App() {
         <Route path="/contact"                  element={<Contact />} />
         <Route path="/aide"                     element={<Aide />} />
         <Route path="/livres"                   element={<Livres />} />
-        <Route path="/forgotPassword"           element={<ForgotPassword />} />
+        <Route path="/forgot-password"          element={<ForgotPassword />} />
+
+        {/* Parent — toutes les routes sous /parent */}
+        <Route path="/parent"                           element={<ParentDashboard />} />
+        <Route path="/parent/children"                  element={<ParentDashboard />} />
+        {/*
+          TODO : remplacer le placeholder ci-dessous par <ParentMessages />
+          une fois la page créée dans pages/ParentMessages.jsx
+        */}
+        <Route path="/parent/messages"                  element={<ParentDashboard />} />
+        <Route path="/parent/messages/new"              element={<ParentDashboard />} />
+        <Route path="/parent/children/:matricule"       element={<ParentDashboard />} />
+        <Route path="/parent/announcements"             element={<ParentDashboard />} />
 
         {/* Pages admin */}
         <Route path="/admin"                    element={<AccueilAdmin />} />
         <Route path="/admin/Eleves"             element={<GestionEleve />} />
         <Route path="/admin/Salles"             element={<Gestionsalles />} />
+        <Route path="/admin/gestion-salles"     element={<GestionSalles />} />
 
         {/* Pages enseignant */}
         <Route path="/teacher"                  element={<DashboardEnseignant />} />
@@ -46,6 +64,8 @@ export default function App() {
         <Route path="/teacher/exams/grades"     element={<SaisieNotes />} />
         <Route path="/teacher/schedule"         element={<EmploiDuTemps />} />
         <Route path="/teacher/discipline"       element={<Discipline />} />
+
+        {/* Messagerie enseignant / admin (NON partagée avec le parent) */}
         <Route path="/messages"                 element={<Messages />} />
       </Routes>
     </BrowserRouter>
