@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const C = {
   violet: "#AD56C4",
@@ -55,6 +56,7 @@ const navItems = [
 ];
 
 export default function DashboardEnseignant() {
+  const navigate = useNavigate();
   const [jourActif, setJourActif] = useState(
     new Date().getDay() === 0 ? 5 : Math.min(new Date().getDay() - 1, 5)
   );
@@ -80,7 +82,7 @@ export default function DashboardEnseignant() {
           <select style={styles.select}>
             <option>2025-2026</option>
           </select>
-         <button style={s.btnDeco} onClick={() => window.location.href = "/login"}>Déconnexion</button>
+         <button style={styles.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 

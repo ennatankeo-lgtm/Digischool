@@ -1,5 +1,6 @@
 // src/pages/teacher/MesEpreuves.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const C = {
   violet: "#AD56C4",
@@ -33,6 +34,7 @@ const epreuves = [
 ];
 
 export default function MesEpreuves() {
+  const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
   const [form, setForm] = useState({ titre: "", classe: "CE2 A", type: "CC", date: "" });
 
@@ -49,7 +51,7 @@ export default function MesEpreuves() {
         <div style={s.topRight}>
           <select style={s.select}><option>Français</option><option>English</option></select>
           <select style={s.select}><option>2025-2026</option></select>
-          <button style={s.btnDeco}>Déconnexion</button>
+          <button style={s.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 

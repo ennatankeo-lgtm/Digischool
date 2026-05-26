@@ -1,5 +1,6 @@
 // src/pages/teacher/MesClasses.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const C = {
   violet: "#AD56C4",
@@ -63,6 +64,7 @@ const mentionColor = (m) => {
 };
 
 export default function MesClasses() {
+  const navigate = useNavigate();
   const [classeActive, setClasseActive] = useState(classes[0]);
   const [recherche, setRecherche] = useState("");
 
@@ -85,7 +87,7 @@ export default function MesClasses() {
         <div style={s.topRight}>
           <select style={s.select}><option>Français</option><option>English</option></select>
           <select style={s.select}><option>2025-2026</option></select>
-          <button style={s.btnDeco}>Déconnexion</button>
+          <button style={s.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 

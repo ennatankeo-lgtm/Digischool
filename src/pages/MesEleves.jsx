@@ -1,5 +1,6 @@
 // src/pages/teacher/MesEleves.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const C = {
   violet: "#AD56C4",
@@ -42,6 +43,7 @@ const mentionColor = (m) => {
 };
 
 export default function MesEleves() {
+  const navigate = useNavigate();
   const [recherche, setRecherche] = useState("");
   const [filtreClasse, setFiltreClasse] = useState("Toutes");
   const [filtreSexe, setFiltreSexe] = useState("Tous");
@@ -69,7 +71,7 @@ export default function MesEleves() {
         <div style={s.topRight}>
           <select style={s.select}><option>Français</option><option>English</option></select>
           <select style={s.select}><option>2025-2026</option></select>
-          <button style={s.btnDeco}>Déconnexion</button>
+          <button style={s.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 

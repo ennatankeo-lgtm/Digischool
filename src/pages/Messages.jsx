@@ -1,5 +1,6 @@
 // src/pages/teacher/Messages.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const C = { violet: "#AD56C4", violetLight: "rgba(173,86,196,0.15)", bg: "#EFF7F6" };
 
@@ -22,6 +23,7 @@ const messagesInit = [
 ];
 
 export default function Messages() {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState(messagesInit);
   const [selectionne, setSelectionne] = useState(null);
   const [onglet, setOnglet] = useState("reçus");
@@ -63,7 +65,7 @@ export default function Messages() {
         <div style={s.topRight}>
           <select style={s.select}><option>Français</option><option>English</option></select>
           <select style={s.select}><option>2025-2026</option></select>
-          <button style={s.btnDeco}>Déconnexion</button>
+          <button style={s.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 

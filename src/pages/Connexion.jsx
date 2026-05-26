@@ -17,6 +17,7 @@ export default function Connexion() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedRole) {
@@ -144,6 +145,7 @@ export default function Connexion() {
               {ROLES.map((role) => (
                 <label
                   key={role.id}
+                  htmlFor={`role-${role.id}`}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -154,8 +156,16 @@ export default function Connexion() {
                     fontWeight: selectedRole === role.id ? 600 : 400,
                   }}
                 >
+                  <input
+                    id={`role-${role.id}`}
+                    type="radio"
+                    name="role"
+                    value={role.id}
+                    checked={selectedRole === role.id}
+                    onChange={(e) => setSelectedRole(e.target.value)}
+                    style={{ display: "none" }}
+                  />
                   <div
-                    onClick={() => setSelectedRole(role.id)}
                     style={{
                       width: "18px",
                       height: "18px",

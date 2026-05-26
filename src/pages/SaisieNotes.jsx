@@ -1,5 +1,6 @@
 // src/pages/teacher/SaisieNotes.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const C = { violet: "#AD56C4", violetLight: "rgba(173,86,196,0.15)", bg: "#EFF7F6" };
 
@@ -42,6 +43,7 @@ const mentionColor = (m) => {
 };
 
 export default function SaisieNotes() {
+  const navigate = useNavigate();
   const [classe, setClasse] = useState("CE2 A");
   const [matiere, setMatiere] = useState("Mathématiques");
   const [typeDevoir, setTypeDevoir] = useState("CC");
@@ -74,7 +76,7 @@ export default function SaisieNotes() {
         <div style={s.topRight}>
           <select style={s.select}><option>Français</option><option>English</option></select>
           <select style={s.select}><option>2025-2026</option></select>
-          <button style={s.btnDeco}>Déconnexion</button>
+          <button style={s.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 

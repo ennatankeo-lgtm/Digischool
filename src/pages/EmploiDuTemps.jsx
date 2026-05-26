@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const C = { violet: "#AD56C4", violetLight: "rgba(173,86,196,0.15)", bg: "#EFF7F6" };
 
 const navItems = [
@@ -33,6 +36,7 @@ const classeColor = (c) => {
 };
 
 export default function EmploiDuTemps() {
+  const navigate = useNavigate();
   const totalHeures = emploi.length;
   const classesUniq = [...new Set(emploi.map((e) => e.classe))];
 
@@ -49,7 +53,7 @@ export default function EmploiDuTemps() {
         <div style={s.topRight}>
           <select style={s.select}><option>Français</option><option>English</option></select>
           <select style={s.select}><option>2025-2026</option></select>
-          <button style={s.btnDeco}>Déconnexion</button>
+          <button style={s.btnDeco} onClick={() => navigate("/login")}>Déconnexion</button>
         </div>
       </header>
 
@@ -65,7 +69,7 @@ export default function EmploiDuTemps() {
         <main style={s.main}>
           <div style={s.pageHeader}>
             <div>
-              <h1 style={s.pageTitle}>📅 Emploi du temps</h1>
+              <h1 style={s.pageTitle}>📅 Emploi du temps de la semaine</h1>
               <p style={s.pageSubtitle}>Semaine — Mathématiques · Année 2025-2026</p>
             </div>
             <div style={s.legend}>
